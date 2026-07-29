@@ -23,3 +23,25 @@ export const createJob = async (jobData) => {
 
   return response.data;
 };
+export const updateJob = async (id, jobData) => {
+  const token = localStorage.getItem("token");
+
+  const response = await api.put(`/jobs/${id}`, jobData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+};
+export const deleteJob = async (id) => {
+  const token = localStorage.getItem("token");
+
+  const response = await api.delete(`/jobs/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+};
