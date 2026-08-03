@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FiLogOut,
   FiPlus,
@@ -16,7 +16,7 @@ import {
   updateJob,
   deleteJob,
 } from "../services/jobService";
-
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 // Presentational helper only — no logic/state change
 const STATUS_STYLES = {
   Applied: "text-blue border-blue",
@@ -113,6 +113,7 @@ function Dashboard() {
     acc[job.status] = (acc[job.status] || 0) + 1;
     return acc;
   }, {});
+// Purely derived/display data — reuses statusCounts, no new API calls
 
   // Purely derived/display logic — doesn't touch your filter, just reorders the result
   const sortJobs = (list) => {
@@ -135,6 +136,8 @@ function Dashboard() {
     }
   };
 
+
+
   return (
     <div className="min-h-screen bg-paper">
       {/* Top bar */}
@@ -156,6 +159,20 @@ function Dashboard() {
             >
               Register
             </button>
+
+            <Link
+              to="/analytics"
+              className="text-sm text-ink-soft hover:text-ink border-b border-transparent hover:border-ink pb-0.5 transition-colors"
+            >
+              Analytics
+            </Link>
+
+            <Link
+              to="/settings"
+              className="text-sm text-ink-soft hover:text-ink border-b border-transparent hover:border-ink pb-0.5 transition-colors"
+            >
+              Settings
+            </Link>
 
             <button
               onClick={handleLogout}
