@@ -104,10 +104,10 @@ function Analytics() {
         <div className="max-w-6xl mx-auto px-6 md:px-10 h-[74px] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full border border-ink flex items-center justify-center -rotate-6 font-serif font-semibold text-[12px] shrink-0">
-              JT
+              AF
             </div>
             <span className="font-serif font-semibold text-lg tracking-tight">
-              Job Tracker
+              ApplyFlow
             </span>
           </div>
 
